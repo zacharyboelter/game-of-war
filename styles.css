@@ -1,10 +1,14 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     background-image: url(./images/table.png);
     /* background-position: center;  */
     height: 100vh;
     background-size: cover;
+   
+}
+
+body { 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,32 +18,31 @@ body {
 
 
 button {
-    background-color: rgb(255, 255, 24);
-    border: none;
+    background-color: #FFF100;
     cursor: pointer;
-
+    border: none;
 }
 
-button.draw-btn  {
-    font-size: 1.5rem;
-    padding: 5px;
-    align-self: stretch;
-}
-
-button.new-deck-btn {
+button#new-deck {
     align-self: flex-start;
     padding: 5px;
 }
 
+button.draw {
+    font-size: 1.2em;
+    padding: 5px;
+    align-self: stretch;
+}
+
 div.card-slot {
     border: 1px solid black;
-    border-radius: 10px;
-    height: 250px;
-    width: calc(250px * 5 / 7);
+    border-radius: 5px;
+    height: 220px;
+    width: calc(220px * 5 / 7);
 }
 
 div.card-slot:nth-of-type(1) {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 img.card {
@@ -47,7 +50,17 @@ img.card {
     height: 100%;
 }
 
+div.top {
+    display: flex;
+    align-items: flex-start;
+    align-self: flex-start;
+}
+
+div.top > p {
+    margin: 0;
+    margin-left: 10px;
+}
+
 button:disabled {
-    color: white;
-    background-color: black;
+    cursor: not-allowed;
 }

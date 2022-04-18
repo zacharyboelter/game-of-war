@@ -10,24 +10,17 @@
 </head>
 
 <body>
-
-
-    <button class="new-deck-btn" id="new-deck-btn">Get a new deck</button>
-    <p id="num-of-cards-remaining"></p>
-
-    <h2 id="who-won">Game of WAR!</h2>
-
-    <div id="cards">
-        <div id="opponent-card" class="card-slot">
-
-        </div>
-        <div id="player-card" class="card-slot">
-
-        </div>
+    <div class="top">
+        <button id="new-deck">New Deck</button>
+        <p id="remaining"></p>
     </div>
+    <h2 id="header">Game of War</h2>
+    <div id="cards">
+        <div class="card-slot"></div>
+        <div class="card-slot"></div>
+    </div>
+    <button id="draw-cards" class="draw">Draw</button>
 
-
-    <button class="draw-btn" id="draw-btn">Draw</button>
 
     <script src="./app.js"></script>
 </body>

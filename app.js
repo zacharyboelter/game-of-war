@@ -15,6 +15,7 @@ function handleClick() {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            remainingCards.innerHTML = `Number Of remaining cards: ${data.remaining}`
             deckId = data.deck_id
             console.log(deckId)
         })
@@ -34,6 +35,10 @@ function drawCards() {
             const winnerText = determineCardWinner(data.cards[0], data.cards[1])
             whoWonText.innerHTML = `${winnerText} ${data.cards[0].value} - ${data.cards[1].value}`
             remainingCards.innerHTML = `Number Of remaining cards: ${data.remaining}`
+
+            if (remainingCards === 0) {
+                drawBtn.btn.disabled = true
+            }
         })
 
         

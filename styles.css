@@ -64,3 +64,7 @@ div.top > p {
 button:disabled {
     cursor: not-allowed;
 }
+
+h2 {
+    margin: 10px;
+}

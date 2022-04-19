@@ -1,11 +1,13 @@
 let deckId
+let computerScore = 0
+let playerScore = 0
 const cardsContainer = document.getElementById("cards")
 const newDeckBtn = document.getElementById("new-deck")
 const drawCardBtn = document.getElementById("draw-cards")
 const header = document.getElementById("header")
 const remainingText = document.getElementById("remaining")
-const computerScore = document.getElementById("computer-score")
-const playerScore = document.getElementById("player-score")
+const computerScoreEl = document.getElementById("computer-score")
+const playerScoreEl = document.getElementById("player-score")
 
 function handleClick() {
     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
@@ -35,6 +37,13 @@ drawCardBtn.addEventListener("click", () => {
             
             if (data.remaining === 0) {
                 drawCardBtn.disabled = true
+                    if (playerScore < computerScore) {
+                        header.textContent = `You lose to the computer, fuckin loser. lol`
+                    } else if (playerScore > computerScore) {
+                        header.textContent = `Fuck yeah, beat em!`
+                    } else {
+                        header.textContent = `Somehow you managed to tie, you suck.`
+                    }
             }
         })
 })
@@ -47,10 +56,14 @@ function determineCardWinner(card1, card2) {
     const card2ValueIndex = valueOptions.indexOf(card2.value)
     
     if (card1ValueIndex > card2ValueIndex) {
-        return "Card 1 wins!"
-        // computerScore.textContent = `Computer Score: ${computerScore++}`
+        computerScore++
+        computerScoreEl.innerHTML = `Computer Score: ${computerScore}`
+        return "Computer wins!"
+        
     } else if (card1ValueIndex < card2ValueIndex) {
-        return "Card 2 wins!"
+        playerScore++
+        playerScoreEl.innerHTML = `Player Score : ${playerScore}`
+        return "You win!"
     } else {
         return "War!"
     }
